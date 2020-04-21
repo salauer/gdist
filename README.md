@@ -66,13 +66,13 @@ and supply the arguments for those distributions as needed.
     summary(y1)
 
     ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    ##   2.906  24.644  40.140  47.722  63.296 279.264
+    ##   2.633  23.057  37.946  46.889  59.404 319.584
 
     y2 <- some_function("lnorm", meanlog=1.6, sdlog=0.4)
     summary(y2)
 
     ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    ##   4.176  23.991  38.413  49.538  61.401 515.976
+    ##   5.432  23.988  37.827  46.492  58.373 362.825
 
 This allows for more flexibility with less code.
 
@@ -96,7 +96,7 @@ the arguments for each distribution.
     summary(y1)
 
     ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    ##   2.383   6.880   9.002  10.211  12.073  42.677
+    ##   2.430   6.965   9.278  10.094  11.986  56.273
 
     y2 <- two_dist_sum(dist1="gamma",
                        dist1_args=list(n=1000,
@@ -109,9 +109,9 @@ the arguments for each distribution.
     summary(y2)
 
     ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    ##   3.057   7.071   9.200  10.133  11.807  51.177
+    ##   2.435   6.779   9.378  10.313  12.403  62.443
 
-The you may want your users to have the same number of draws from each
+You may want your users to have the same number of draws from each
 distribution. `gdist` allows users to specify an `n` value for the
 `rdist()` function (as well as `x`, `q`, and `p` for the `ddist()`,
 `pdist()` and `qdist()` functions, respectively).
@@ -132,7 +132,7 @@ distribution. `gdist` allows users to specify an `n` value for the
     summary(y1)
 
     ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    ##   2.003   6.674   8.907  10.008  12.178  39.700
+    ##   2.746   6.802   8.915   9.967  11.806  80.939
 
     y2 <- two_dist_sum_n(n_sims=1000,
                          dist1="gamma",
@@ -144,7 +144,7 @@ distribution. `gdist` allows users to specify an `n` value for the
     summary(y2)
 
     ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    ##   1.081   7.029   9.211  10.249  12.203  49.492
+    ##   2.026   7.123   9.268  10.217  11.963  34.865
 
 If you don’t know the abbreviated name for the distribution, you can
 supply the full name of the distribution and – if it is in the `stats`
@@ -156,7 +156,7 @@ learn the abbreviated name of the distribution, set `lookup_verbose=T`.
 
     ## using the abbreviation 'lnorm'
 
-    ## [1] 0.9365115
+    ## [1] 4.605414
 
 Use `data(dist_lookup_table)` to see a list of the distributions from
 the `stats` package and their abbreviations.

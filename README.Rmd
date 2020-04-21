@@ -114,7 +114,7 @@ y2 <- two_dist_sum(dist1="gamma",
 summary(y2)
 ```
 
-The you may want your users to have the same number of draws from each distribution.
+You may want your users to have the same number of draws from each distribution.
 `gdist` allows users to specify an `n` value for the `rdist()` function (as well as `x`, `q`, and `p` for the `ddist()`, `pdist()` and `qdist()` functions, respectively).
 
 ```{r solution-n, eval=T}
