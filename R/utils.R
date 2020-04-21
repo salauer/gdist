@@ -5,7 +5,6 @@
 ##'@param l the object (scalar or vector) to evaluate
 ##'@return a float evaluation of the expression
 ##'
-##'@export
 ##'@examples
 ##' as_evaled_expression(c("2+2", "9*9")) -> (4, 81)
 as_evaled_expression <- function(l) {
@@ -25,6 +24,38 @@ as_evaled_expression <- function(l) {
 
     return(unlist(lapply(l, .as_evaled_expression)))
 }
+
+
+.safe_env <- new.env(parent = emptyenv())
+
+#'
+#' Initialize safe environment
+#'
+#' @return
+#'
+init_safe_env = function() {
+    safe_f <- c(
+        methods::getGroupMembers("Math"),
+        methods::getGroupMembers("Arith"),
+        methods::getGroupMembers("Compare"),
+        "<-", "{", "(", "min", "max", "pmin", "pmax",
+        "seq", ":", "seq.default", "seq.int"
+    )
+
+    for (f in safe_f) {
+        .safe_env[[f]] <- get(f, "package:base")
+    }
+}
+
+##'
+##'Safer version of eval that only allows arthimetic operations
+##'
+##' @param call
+safe_eval <- function(call) {
+    if (is.null(.safe_env$min)) init_safe_env()
+    eval(call, env=.safe_env)
+}
+
 
 #' The general density distribution
 #'
