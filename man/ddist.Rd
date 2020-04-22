@@ -4,20 +4,18 @@
 \alias{ddist}
 \title{The general density distribution}
 \usage{
-ddist(dist, x, ..., arg_list, lookup_dist = F, lookup_verbose = F)
+ddist(dist, x, arg_list, lookup_verbose = F, ...)
 }
 \arguments{
 \item{dist}{character string, specification of the distribution of interest using the abbreviations from \code{\link[stats]{distributions}}}
 
 \item{x}{numeric vector of quantiles}
 
-\item{...}{arguments specific to the distribution of interest (e.g. the "binom" distribution requires arguments for size and prob)}
-
 \item{arg_list}{list, alternative to directly using the names of the arguments for the distribution of choice, the user can provide a list with those arguments enclosed. This is useful for when multiple distributions need to be drawn from.}
 
-\item{lookup_dist}{logical, whether to look up the correctly abbreviated name}
+\item{lookup_verbose}{logical, whether to print the abbreviated name found in the dist_lookup_table}
 
-\item{lookup_verbose}{logical, whether to print the abbreviated name found by lookup_dist}
+\item{...}{arguments specific to the distribution of interest (e.g. the "binom" distribution requires arguments for size and prob)}
 }
 \value{
 a numeric vector representing the density of the distribution of interest

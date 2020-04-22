@@ -1,0 +1,37 @@
+﻿dist,name
+beta,beta
+binom,binom
+binom,binomial
+cauchy,cauchy
+chisq,chisq
+chisq,chi-square
+chisq,chi-squared
+exp,exp
+exp,exponential
+f,f
+gamma,gamma
+geom,geom
+geom,geometric
+hyper,hyper
+hyper,hypergeometric
+lnorm,lnorm
+lnorm,log-normal
+lnorm,log normal
+multinom,multinom
+multinom,multinomial
+nbinom,nbinom
+nbinom,negative binomial
+nbinom,nb
+norm,norm
+norm,normal
+pois,pois
+pois,poisson
+t,t
+unif,unif
+unif,uniform
+weibull,weibull
+birthday,birthday
+signrank,signrank
+signrank,signed rank
+tukey,tukey
+wilcox,wilcox

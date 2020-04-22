@@ -15,6 +15,3 @@ a float evaluation of the expression
 \description{
 Evaluates an expression, returning a numeric value
 }
-\examples{
-as_evaled_expression(c("2+2", "9*9")) -> (4, 81)
-}

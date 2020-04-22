@@ -4,20 +4,18 @@
 \alias{pdist}
 \title{The general distribution function}
 \usage{
-pdist(dist, q, ..., arg_list, lookup_dist = F, lookup_verbose = F)
+pdist(dist, q, arg_list, lookup_verbose = F, ...)
 }
 \arguments{
 \item{dist}{character string, specification of the distribution of interest using the abbreviations from \code{\link[stats]{distributions}}}
 
 \item{q}{numeric vector of quantiles}
 
-\item{...}{arguments specific to the distribution of interest (e.g. the "binom" distribution requires arguments for size and prob)}
-
 \item{arg_list}{list, alternative to directly using the names of the arguments for the distribution of choice, the user can provide a list with those arguments enclosed. This is useful for when multiple distributions need to be drawn from.}
 
-\item{lookup_dist}{logical, whether to look up the correctly abbreviated name}
+\item{lookup_verbose}{logical, whether to print the abbreviated name found in the dist_lookup_table}
 
-\item{lookup_verbose}{logical, whether to print the abbreviated name found by lookup_dist}
+\item{...}{arguments specific to the distribution of interest (e.g. the "binom" distribution requires arguments for size and prob)}
 }
 \value{
 a numeric vector representing the cumulative distribution function for the distribution of interest
@@ -27,5 +25,5 @@ The general distribution function
 }
 \examples{
 ## use curve and pdist to visualize the cumulative distribution for a function
-curve(pdist("norm", x, 0, 1), from=-5, to=5)
+curve(pdist("norm", x, mean=0, sd=1), from=-5, to=5)
 }

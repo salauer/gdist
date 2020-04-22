@@ -4,20 +4,18 @@
 \alias{rdist}
 \title{Random generation for a specified distribution}
 \usage{
-rdist(dist, n, ..., arg_list, lookup_dist = F, lookup_verbose = F)
+rdist(dist, n, arg_list, lookup_verbose = F, ...)
 }
 \arguments{
 \item{dist}{character string, specification of the distribution of interest using the abbreviations from \code{\link[stats]{distributions}}}
 
 \item{n}{number of random values to return}
 
-\item{...}{arguments specific to the distribution of interest (e.g. the "binom" distribution requires arguments for size and prob)}
-
 \item{arg_list}{list, alternative to directly using the names of the arguments for the distribution of choice, the user can provide a list with those arguments enclosed. This is useful for when multiple distributions need to be drawn from.}
 
-\item{lookup_dist}{logical, whether to look up the correctly abbreviated name}
+\item{lookup_verbose}{logical, whether to print the abbreviated name found in the dist_lookup_table}
 
-\item{lookup_verbose}{logical, whether to print the abbreviated name found by lookup_dist}
+\item{...}{arguments specific to the distribution of interest (e.g. the "binom" distribution requires arguments for size and prob)}
 }
 \value{
 a numeric vector representing a random draw from the distribution of interest
@@ -44,7 +42,7 @@ x <- two_dist_sum(n=1000,
                                   sdlog=0.79))
 summary(x)
 ## now change incubation time to gamma distribution from Lauer, Grantz, et al.
-x_gamma <- two_dist_sum(n_sims=1000
+x_gamma <- two_dist_sum(n_sims=1000,
                         dist1="gamma",
                         dist1_args=list(shape=5.807,
                                         scale=0.948),

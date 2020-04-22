@@ -143,12 +143,11 @@ y2 <- two_dist_sum_n(n_sims=1000,
 summary(y2)
 ```
 
-If you don't know the abbreviated name for the distribution, you can supply the full name of the distribution and -- if it is in the `stats` package -- the functions will look it up for you when `lookup_dist=T`.
+If you don't know the abbreviated name for the distribution, you can supply the full name of the distribution and -- if it is in the `stats` package -- the functions will look it up for you.
 To learn the abbreviated name of the distribution, set `lookup_verbose=T`.
 
 ```{r lookup}
-rdist(dist="Log-Normal", n=1, meanlog=1.23, sdlog=0.79,
-      lookup_dist=T, lookup_verbose=T)
+rdist(dist="Log-Normal", n=1, meanlog=1.23, sdlog=0.79, lookup_verbose=T)
 ```
 
 Use `data(dist_lookup_table)` to see a list of the distributions from the `stats` package and their abbreviations.

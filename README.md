@@ -65,14 +65,14 @@ and supply the arguments for those distributions as needed.
     y1 <- some_function("gamma", shape=5.8, scale=0.9)
     summary(y1)
 
-    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    ##   2.633  23.057  37.946  46.889  59.404 319.584
+    ##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+    ##   0.7038  24.0445  39.2660  47.6451  60.3075 278.2187
 
     y2 <- some_function("lnorm", meanlog=1.6, sdlog=0.4)
     summary(y2)
 
     ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    ##   5.432  23.988  37.827  46.492  58.373 362.825
+    ##    4.96   24.55   39.59   49.45   59.88  495.58
 
 This allows for more flexibility with less code.
 
@@ -96,7 +96,7 @@ the arguments for each distribution.
     summary(y1)
 
     ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    ##   2.430   6.965   9.278  10.094  11.986  56.273
+    ##   2.366   7.150   9.313  10.174  12.308  37.132
 
     y2 <- two_dist_sum(dist1="gamma",
                        dist1_args=list(n=1000,
@@ -109,7 +109,7 @@ the arguments for each distribution.
     summary(y2)
 
     ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    ##   2.435   6.779   9.378  10.313  12.403  62.443
+    ##   2.692   6.904   9.225  10.098  12.200  35.832
 
 You may want your users to have the same number of draws from each
 distribution. `gdist` allows users to specify an `n` value for the
@@ -132,7 +132,7 @@ distribution. `gdist` allows users to specify an `n` value for the
     summary(y1)
 
     ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    ##   2.746   6.802   8.915   9.967  11.806  80.939
+    ##   2.162   6.994   9.344  10.375  12.624  46.748
 
     y2 <- two_dist_sum_n(n_sims=1000,
                          dist1="gamma",
@@ -144,19 +144,18 @@ distribution. `gdist` allows users to specify an `n` value for the
     summary(y2)
 
     ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    ##   2.026   7.123   9.268  10.217  11.963  34.865
+    ##   2.430   7.009   9.249  10.155  12.040  50.849
 
 If you don’t know the abbreviated name for the distribution, you can
 supply the full name of the distribution and – if it is in the `stats`
-package – the functions will look it up for you when `lookup_dist=T`. To
-learn the abbreviated name of the distribution, set `lookup_verbose=T`.
+package – the functions will look it up for you. To learn the
+abbreviated name of the distribution, set `lookup_verbose=T`.
 
-    rdist(dist="Log-Normal", n=1, meanlog=1.23, sdlog=0.79,
-          lookup_dist=T, lookup_verbose=T)
+    rdist(dist="Log-Normal", n=1, meanlog=1.23, sdlog=0.79, lookup_verbose=T)
 
     ## using the abbreviation 'lnorm'
 
-    ## [1] 4.605414
+    ## [1] 6.153723
 
 Use `data(dist_lookup_table)` to see a list of the distributions from
 the `stats` package and their abbreviations.
