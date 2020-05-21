@@ -84,4 +84,14 @@ test_that("rdist works", {
         var(rn) > 5*1/10*9/10*.97 & var(rn) < 5*1/10*9/10*1.03
     })
 
+    expect_true({
+        rn <- rdist(dist = "binomial", n=1e5, arg_list=list(size = 5, prob = "1/10"))
+        var(rn) > 5*1/10*9/10*.97 & var(rn) < 5*1/10*9/10*1.03
+    })
+
+    expect_true({
+        rn <- pdist(dist = "pois", q=8, arg_list=list(lambda = 10, lower.tail=FALSE))
+        rn > 0.66
+    })
+
 })
