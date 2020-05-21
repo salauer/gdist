@@ -80,7 +80,7 @@ ddist <- function(dist, x, arg_list, lookup_verbose=F, ...){
             arg_list[["x"]] <- x
         }
         return(do.call(paste0("d", dist),
-                       args = lapply(arg_list, as_evaled_expression)))
+                       args = lapply(arg_list, as_evaled_expression, ...)))
     } else
         return(do.call(paste0("d", dist), args = list(x=x, ...)))
 }
@@ -111,7 +111,7 @@ pdist <- function(dist, q, arg_list, lookup_verbose=F, ...){
             arg_list[["q"]] <- q
         }
         return(do.call(paste0("p", dist),
-                       args = lapply(arg_list, as_evaled_expression)))
+                       args = lapply(arg_list, as_evaled_expression, ...)))
     } else
         return(do.call(paste0("p", dist), args = list(q=q, ...)))
 }
@@ -140,7 +140,7 @@ qdist <- function(dist, p, arg_list, lookup_verbose=F, ...){
             arg_list[["p"]] <- p
         }
         return(do.call(paste0("q", dist),
-                       args = lapply(arg_list, as_evaled_expression)))
+                       args = lapply(arg_list, as_evaled_expression, ...)))
     } else
         return(do.call(paste0("q", dist), args = list(p=p, ...)))
 }
@@ -193,7 +193,7 @@ rdist <- function(dist, n, arg_list, lookup_verbose=F, ...){
             arg_list[["n"]] <- n
         }
         return(do.call(paste0("r", dist),
-                       args = lapply(arg_list, as_evaled_expression)))
+                       args = lapply(arg_list, as_evaled_expression, ...)))
     } else
         return(do.call(paste0("r", dist), args = list(n=n, ...)))
 }
