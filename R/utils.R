@@ -77,14 +77,17 @@ ddist <- function(dist, x, arg_list, lookup_verbose=F, ...){
     if(lookup_verbose)
         message(paste0("using the abbreviation '", dist, "'"))
 
-    if(!missing(arg_list)){
+    if(missing(arg_list)){
+        return(do.call(paste0("d", dist), args = list(x=x, ...)))
+    } else {
         if(!missing(x)){
             arg_list[["x"]] <- x
         }
+        ## remove unused arguments
+        arg_list <- arg_list[names(arg_list) %in% names(formals(paste0("d", dist)))]
         return(do.call(paste0("d", dist),
                        args = lapply(arg_list, as_evaled_expression)))
-    } else
-        return(do.call(paste0("d", dist), args = list(x=x, ...)))
+    }
 }
 
 #' The general distribution function
@@ -108,14 +111,17 @@ pdist <- function(dist, q, arg_list, lookup_verbose=F, ...){
     if(lookup_verbose)
         message(paste0("using the abbreviation '", dist, "'"))
 
-    if(!missing(arg_list)){
+    if(missing(arg_list)){
+        return(do.call(paste0("p", dist), args = list(q=q, ...)))
+    } else{
         if(!missing(q)){
             arg_list[["q"]] <- q
         }
+        ## remove unused arguments
+        arg_list <- arg_list[names(arg_list) %in% names(formals(paste0("p", dist)))]
         return(do.call(paste0("p", dist),
                        args = lapply(arg_list, as_evaled_expression)))
-    } else
-        return(do.call(paste0("p", dist), args = list(q=q, ...)))
+    }
 }
 
 #' The general quantile function
@@ -137,14 +143,17 @@ qdist <- function(dist, p, arg_list, lookup_verbose=F, ...){
     if(lookup_verbose)
         message(paste0("using the abbreviation '", dist, "'"))
 
-    if(!missing(arg_list)){
+    if(missing(arg_list)){
+        return(do.call(paste0("q", dist), args = list(p=p, ...)))
+    } else{
         if(!missing(p)){
             arg_list[["p"]] <- p
         }
+        ## remove unused arguments
+        arg_list <- arg_list[names(arg_list) %in% names(formals(paste0("q", dist)))]
         return(do.call(paste0("q", dist),
                        args = lapply(arg_list, as_evaled_expression)))
-    } else
-        return(do.call(paste0("q", dist), args = list(p=p, ...)))
+    }
 }
 
 #' Random generation for a specified distribution
@@ -190,12 +199,15 @@ rdist <- function(dist, n, arg_list, lookup_verbose=F, ...){
     if(lookup_verbose)
         message(paste0("using the abbreviation '", dist, "'"))
 
-    if(!missing(arg_list)){
+    if(missing(arg_list)){
+        return(do.call(paste0("r", dist), args = list(n=n, ...)))
+    } else{
         if(!missing(n)){
             arg_list[["n"]] <- n
         }
+        ## remove unused arguments
+        arg_list <- arg_list[names(arg_list) %in% names(formals(paste0("r", dist)))]
         return(do.call(paste0("r", dist),
                        args = lapply(arg_list, as_evaled_expression)))
-    } else
-        return(do.call(paste0("r", dist), args = list(n=n, ...)))
+    }
 }
